@@ -364,7 +364,6 @@
           <tr>
             <th>Пакет</th>
             <th>Кол-во видео</th>
-            <th>Цена</th>
             <th>Цена за 1 видео</th>
           </tr>
         </thead>
@@ -372,25 +371,21 @@
           <tr>
             <td>🔥 Старт</td>
             <td>5</td>
-            <td>990 ₽</td>
             <td>198 ₽</td>
           </tr>
           <tr>
             <td>💼 Рабочий</td>
             <td>15</td>
-            <td>2490 ₽</td>
             <td>166 ₽</td>
           </tr>
           <tr>
             <td>🚀 Профи</td>
             <td>30</td>
-            <td>3990 ₽</td>
             <td>133 ₽</td>
           </tr>
           <tr>
             <td>🏆 Максимум</td>
             <td>от 60</td>
-            <td>119 ₽ × кол-во</td>
             <td>119 ₽</td>
           </tr>
         </tbody>
@@ -457,93 +452,73 @@
     </div>
     <script>
       const currencyMap = {
-        AL: "EUR",
-        AD: "EUR",
-        AM: "EUR",
-        AT: "EUR",
-        AZ: "EUR",
-        BY: "EUR",
-        BE: "EUR",
-        BA: "EUR",
-        BG: "EUR",
-        HR: "EUR",
-        CY: "EUR",
-        CZ: "EUR",
-        DK: "EUR",
-        EE: "EUR",
-        FI: "EUR",
-        FR: "EUR",
-        GE: "EUR",
-        DE: "EUR",
-        GR: "EUR",
-        HU: "EUR",
-        IS: "EUR",
-        IE: "EUR",
-        IT: "EUR",
-        KZ: "EUR",
-        XK: "EUR",
-        LV: "EUR",
-        LI: "EUR",
-        LT: "EUR",
-        LU: "EUR",
-        MT: "EUR",
-        MD: "EUR",
-        MC: "EUR",
-        ME: "EUR",
-        NL: "EUR",
-        MK: "EUR",
-        NO: "EUR",
-        PL: "EUR",
-        PT: "EUR",
-        RO: "EUR",
-        SM: "EUR",
-        RS: "EUR",
-        SK: "EUR",
-        SI: "EUR",
-        ES: "EUR",
-        SE: "EUR",
-        CH: "EUR",
-        TR: "EUR",
-        UA: "EUR",
-        GB: "EUR",
-        VA: "EUR",
+        // AL: "EUR",
+        // AD: "EUR",
+        // AM: "EUR",
+        // AT: "EUR",
+        // AZ: "EUR",
+        // BY: "EUR",
+        // BE: "EUR",
+        // BA: "EUR",
+        // BG: "EUR",
+        // HR: "EUR",
+        // CY: "EUR",
+        // CZ: "EUR",
+        // DK: "EUR",
+        // EE: "EUR",
+        // FI: "EUR",
+        // FR: "EUR",
+        // GE: "EUR",
+        // DE: "EUR",
+        // GR: "EUR",
+        // HU: "EUR",
+        // IS: "EUR",
+        // IE: "EUR",
+        // IT: "EUR",
+        // KZ: "EUR",
+        // XK: "EUR",
+        // LV: "EUR",
+        // LI: "EUR",
+        // LT: "EUR",
+        // LU: "EUR",
+        // MT: "EUR",
+        // MD: "EUR",
+        // MC: "EUR",
+        // ME: "EUR",
+        // NL: "EUR",
+        // MK: "EUR",
+        // NO: "EUR",
+        // PL: "EUR",
+        // PT: "EUR",
+        // RO: "EUR",
+        // SM: "EUR",
+        // RS: "EUR",
+        // SK: "EUR",
+        // SI: "EUR",
+        // ES: "EUR",
+        // SE: "EUR",
+        // CH: "EUR",
+        // TR: "EUR",
+        // UA: "EUR",
+        // GB: "EUR",
+        // VA: "EUR",
         RU: "RUB",
         default: "USD",
       };
 
       const prices = {
         RUB: {
-          start: "990 ₽",
           startPer: "198 ₽",
-          working: "2490 ₽",
           workingPer: "166 ₽",
-          pro: "3990 ₽",
           proPer: "133 ₽",
-          max: "119 ₽ × кол-во",
           maxPer: "119 ₽",
           minPrice: "119 ₽",
           outsourcePrice: "700 рублей",
         },
-        EUR: {
-          start: "10 €",
-          startPer: "2 €",
-          working: "27 €",
-          workingPer: "1.8 €",
-          pro: "45 €",
-          proPer: "1.5 €",
-          max: "1.2 € × кол-во",
-          maxPer: "1.2 €",
-          minPrice: "1.2 €",
-          outsourcePrice: "8 €",
-        },
         USD: {
-          start: "10 $",
           startPer: "2 $",
-          working: "27 $",
           workingPer: "1.8 $",
-          pro: "45 $",
           proPer: "1.5 $",
-          max: "1.2 $ × кол-во",
           maxPer: "1.2 $",
           minPrice: "1.2 $",
           outsourcePrice: "8 $",
@@ -559,22 +534,15 @@
 
           if (currency === "RUB") return; // Оставляем рубли как есть
 
-          const priceSet = currency === "EUR" ? prices.EUR : prices.USD;
+          const priceSet = prices.USD;
           const rows = document.querySelectorAll("table tbody tr");
           if (rows.length < 4) return;
 
-          // Обновляем цены в таблице
-          rows[0].children[2].textContent = priceSet.start;
-          rows[0].children[3].textContent = priceSet.startPer;
-
-          rows[1].children[2].textContent = priceSet.working;
-          rows[1].children[3].textContent = priceSet.workingPer;
-
-          rows[2].children[2].textContent = priceSet.pro;
-          rows[2].children[3].textContent = priceSet.proPer;
-
-          rows[3].children[2].textContent = priceSet.max;
-          rows[3].children[3].textContent = priceSet.maxPer;
+          // Обновляем цены в таблице (теперь только одна колонка с ценой за видео)
+          rows[0].children[2].textContent = priceSet.startPer;
+          rows[1].children[2].textContent = priceSet.workingPer;
+          rows[2].children[2].textContent = priceSet.proPer;
+          rows[3].children[2].textContent = priceSet.maxPer;
 
           const minPriceElement = document.getElementById("min-price");
           if (minPriceElement) {
