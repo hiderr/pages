@@ -69,7 +69,8 @@
 
       .cta-button {
         display: inline-block;
-        background: #28a745;
+        background: linear-gradient(45deg, #28a745, #20c997, #28a745);
+        background-size: 200% 200%;
         color: white;
         padding: 15px 25px;
         border-radius: 8px;
@@ -78,6 +79,27 @@
         text-decoration: none;
         text-align: center;
         margin-top: 10px;
+        transition: all 0.3s ease;
+        animation: shimmer 2s infinite;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+      }
+
+      .cta-button:hover {
+        text-decoration: none;
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
 
       @media (max-width: 768px) {
@@ -261,12 +283,12 @@
         "
       >
         <strong
-          >🔥 АКЦИЯ! Я делаю готовые видео любой тематики и на любом языке всего
-          за <span id="min-price">1$</span> за видео.</strong
+          >Я делаю видео любой тематики и на любом языке всего за
+          <span id="min-price">1$</span> за видео.</strong
         ><br />
         Никакой съёмки, монтажа или сложностей. Просто скачай — и выкладывай.<br />
         <span style="color: #dc3545; font-weight: bold"
-          >⚠️ Обычная цена намного выше! Акция действует ограниченное
+          >⚠️ Обычная цена намного выше! Предложение действует ограниченное
           время!</span
         >
       </div>
@@ -460,9 +482,9 @@
           border-radius: 6px;
         "
       >
-        <strong>🎯 Сейчас действует временная акция:</strong><br /><br />
         <span style="font-size: 18px; font-weight: bold; color: #222"
-          >Видео — всего за <span id="min-price">1$</span> за штуку.</span
+          >🔥 Акция! Видео — всего за <span id="min-price">1$</span> за
+          штуку.</span
         ><br /><br />
         Это самая низкая цена, которую я когда-либо предлагал.<br />
         Когда поток заказов станет выше — стоимость увеличится.<br /><br />
@@ -471,7 +493,7 @@
 
       <div style="text-align: center">
         <a href="https://t.me/teamokha" class="cta-button" target="_blank"
-          >✨ Заказать видео сейчас</a
+          >🔥 Заказать видео сейчас</a
         >
       </div>
 
